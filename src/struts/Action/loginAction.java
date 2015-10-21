@@ -15,7 +15,7 @@ public class loginAction extends Action {
 					throws Exception {
 		
 		return mapping.findForward("success");
-	
+		// test
 	}
 
 }
