@@ -35,15 +35,17 @@ public class loginAction extends Action {
 			memberBasicTO basic = mc.retreiveBasicTO(id);
 			MemberSessionMisc.setMemberSession(request, basic);
 			
+			//request.setAttribute("next.page", "struts_00/main.do?id="+id);
+			request.setAttribute("next.page", "struts_00/ThankYou.jsp");
 			mappingName = "success";
 			
 			// encoding changed
+		} else {
+			request.setAttribute("next.page", "struts_00/loginFail.jsp");
+			mappingName = "fail";
 		}
 		
-		
-
-			
-		mapping.findForward(mappingName);
+		return mapping.findForward(mappingName);
 		
 		
 	}
