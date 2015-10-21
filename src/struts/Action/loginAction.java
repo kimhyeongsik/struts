@@ -36,6 +36,8 @@ public class loginAction extends Action {
 			MemberSessionMisc.setMemberSession(request, basic);
 			
 			mappingName = "success";
+			
+			// encoding changed
 		}
 		
 		
