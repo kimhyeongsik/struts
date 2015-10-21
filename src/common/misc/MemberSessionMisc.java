@@ -1,6 +1,3 @@
-// Invalidate 는 세션을 삭제한다. 세션값을 "" 으로 바꾸는 removeAttribute와는 다르다.
-// removeAttribute는 로그아웃하더라도 브라우저를 종료하지않으면 값이 남아있게된다.
-
 package common.misc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +15,6 @@ public class MemberSessionMisc {
 	private static final String MEMBER_SESSION_VO = "_member.session.vo_";
 
 	public static void setMemberSession(HttpServletRequest request, MemberSessionVO data) {
-		// MemberSessionVO 의 빈즈데이터를 이용하여 멤버세션을 생성하는 메소드.
 
 		if(data == null) {
 			return;
@@ -32,7 +28,6 @@ public class MemberSessionMisc {
 
 
 	public static void setMemberSession(HttpServletRequest request, memberBasicTO data) {	
-		// MemberBasicTo 형태의 데이터를 MemberSessionVO 형태로 변환시켜주는 메소드
 
 		if(data == null) {
 			return;
@@ -57,7 +52,6 @@ public class MemberSessionMisc {
 
 
 	public static MemberSessionVO getMemberSession(HttpServletRequest request) {
-		// 사용자 세션에서 멤버세션만을 뽑아와 MemberSessionVO 형태로 리턴해주는 메소드.
 
 		HttpSession session = request.getSession();
 		return (MemberSessionVO) session.getAttribute(MEMBER_SESSION_VO);
