@@ -1,7 +1,11 @@
 package struts.Controller;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
+import struts.Beans.memberBasicTO;
 import struts.DAO.memberBasicDAOOracle;
 
 public class MemberController {
@@ -33,5 +37,21 @@ public class MemberController {
 		}
 				
 	}
+	
+	
+	
+	public memberBasicTO retreiveBasicTO(String id) throws Exception {
+
+		memberBasicDAOOracle dao = getDAOOracle();
+		
+		try {
+			return dao.retreiveBasic(id);
+		} catch (SQLException sqlex) {
+			sqlex.printStackTrace();
+			return null;
+		}
+				
+	}
+	
 	
 }

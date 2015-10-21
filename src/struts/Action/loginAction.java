@@ -9,6 +9,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.DynaValidatorForm;
 
+import common.misc.MemberSessionMisc;
+import struts.Beans.memberBasicTO;
 import struts.Controller.MemberController;
 
 public class loginAction extends Action {
@@ -30,8 +32,8 @@ public class loginAction extends Action {
 		boolean pwcheck = mc.passwdCheck(id, passwd);
 		
 		if (idcheck && pwcheck) {
-			MemberBasicTO basic = new MemberBasicTO();
-			
+			memberBasicTO basic = mc.retreiveBasicTO(id);
+			MemberSessionMisc.setMemberSession(request, basic);
 			
 			mappingName = "success";
 		}
