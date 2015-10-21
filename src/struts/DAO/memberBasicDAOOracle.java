@@ -35,6 +35,37 @@ public class memberBasicDAOOracle {
 		
 	}
 	
+	public boolean idCheck(String id) throws Exception {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = connDAO.getConn();
+			stmt = conn.createStatement();
+			
+			String query = "SELECT num FROM tbl_member_basic WHERE id ="
+			+ StringMisc.makeField(id);
+			
+			rs = stmt.executeQuery(query);
+			
+			if (rs.next()) {
+				return true;
+			}
+			
+ 		} catch (SQLException sqlex) {
+ 			sqlex.printStackTrace();
+ 		} finally {
+			if (stmt != null) { stmt.close(); }
+			if (rs != null) { rs.close(); }
+			if (conn != null) { conn.close(); }
+		}
+		
+		return false;
+		
+	}
+	
+	
 	public boolean passwdCheck(String id, String passwd) throws Exception {
 		Connection conn = null;
 		Statement stmt = null;
@@ -66,5 +97,21 @@ public class memberBasicDAOOracle {
 		
 	}
 	
+	
+	public memberBasicTO retreiveBasic(String id) {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		
-}
+		try {
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+		
+}	// end class
